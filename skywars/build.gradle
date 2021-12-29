@@ -1,0 +1,18 @@
+plugins {
+    id 'java'
+}
+
+group 'com.stellamc.events'
+version '1.1'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation project(":api")
+}
+
+test {
+    useJUnitPlatform()
+}

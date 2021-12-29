@@ -1,0 +1,4 @@
+main: com.stella.events.EventPlugin
+version: 1.0
+name: Events
+depend: [helper]

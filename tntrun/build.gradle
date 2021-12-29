@@ -1,0 +1,18 @@
+plugins {
+    id 'java'
+}
+
+group 'com.stella.events'
+version 'unspecified'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation project(":api")
+}
+
+test {
+    useJUnitPlatform()
+}
