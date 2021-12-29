@@ -1,0 +1,6 @@
+rootProject.name = 'events'
+include 'api'
+include 'tntrun'
+include 'core'
+include 'skywars'
+

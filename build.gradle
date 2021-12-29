@@ -1,0 +1,51 @@
+apply plugin: 'java'
+
+compileJava.options.encoding = "UTF-8"
+compileTestJava.options.encoding = "UTF-8"
+
+
+java {
+    toolchain.languageVersion.set(JavaLanguageVersion.of(8))
+}
+
+buildscript {
+
+    repositories {
+        mavenCentral()
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+    }
+    dependencies {
+        classpath "gradle.plugin.com.github.johnrengelman:shadow:7.1.1"
+    }
+}
+
+subprojects {
+    apply plugin: 'java'
+    apply plugin: 'maven-publish'
+    apply plugin: 'com.github.johnrengelman.shadow'
+
+    archivesBaseName = "Realms"
+
+    group = "com.stella.events"
+
+    repositories {
+        mavenCentral()
+        maven { url("https://repo.lucko.me/") }
+        maven { url = 'https://oss.sonatype.org/content/repositories/snapshots' }
+        maven { url = 'https://oss.sonatype.org/content/repositories/central' }
+    }
+
+    dependencies {
+        implementation('org.jetbrains:annotations-java5:16.0.2')
+        compileOnly ("me.lucko:helper:5.6.8")
+        compileOnly ("org.spigotmc:spigot-api:1.8.8-R0.1-SNAPSHOT")
+    }
+}
+
+
+
+wrapper {
+    distributionType = Wrapper.DistributionType.ALL
+}
